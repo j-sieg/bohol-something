@@ -11,6 +11,12 @@
     $results = mysqli_query($db_conn, $query);
   ?>
 
+  <?php if (isAdmin()) { ?>
+    <div class='m-auto text-center p-2 mb-2' style='width: max-content;'>
+      <a class='text-success fw-bolder fs-3' href="/package/new.php"> new package </a>
+    </div>
+  <?php } ?>
+
   <?php if (mysqli_num_rows($results) != 0) { ?>
 
     <div class='mb-4 text-center'>

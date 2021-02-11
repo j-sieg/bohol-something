@@ -1,7 +1,10 @@
 <?php
   include('../views/header.php');
+  include('../actions/redirects.php');
+  notFoundIfNotAdmin();
 ?>
 
+<?php if (isAdmin()) { ?>
 <main class='mt-4'>
   <?php
     include('../db/connection.php');
@@ -24,41 +27,15 @@
   </div>
   
   <?php if ($package) { ?>
-    <div class="card shadow bg-light rounded col-6 mx-auto">
-      <form class='p-2' action='edit.php' method='post'>
-        <input type='hidden' name='package_id' value='<?php echo $package['id']?>' />
-        <div class='form-group'>
-          <label for='name'> Name </label>
-          <input class='form-control' type='text' name='name'
-            value="<?php echo htmlspecialchars($package['name']) ?>" placeholder="Name"/>
-        </div>
-
-        <div class='form-group mt-3'>
-          <label for='good_for'> Good for? </label>
-          <input class='form-control' type='number' name='good_for'
-            value="<?php echo htmlspecialchars($package['good_for']) ?>" placeholder="How many?"/>
-        </div>
-
-        <div class='form-group mt-3'>
-          <label for='perks'> Perks </label>
-          <textarea class='form-control' type='text' name='perks' placeholder="Perks"><?php echo htmlspecialchars($package['perks']) ?></textarea>
-        </div>
-
-        <div class='form-group mt-3'>
-          <input class='btn btn-sm btn-success' type='submit' name='submit' value='Update' />
-          <a class="btn btn-sm btn-primary text-decoration-none"
-            href="/package/index.php?package=<?php echo htmlspecialchars($package['id']); ?>">
-            Show
-          </a>
-        </div>
-      </form>
-
-    </div>
-
+    <?php
+      $method = 'Update';
+      include('form.php');
+    ?>
   <?php } else { ?>
     <h1 class='text-center'> The package does not exist :( </h1>
   <?php } ?>
 </main>
+<?php } ?>
 
 <?php
   include('../views/footer.php');

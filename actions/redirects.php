@@ -14,4 +14,10 @@
       header('Location: /views/user/login.php');
     }
   }
+
+  function notFoundIfNotAdmin() {
+    if (!isAdmin()) {
+      header('Location: /404.php');
+    }
+  }
 ?>
