@@ -39,6 +39,10 @@
                 <h5 class="card-title">
                   <?php echo htmlspecialchars($package['name']); ?>
                 </h5>
+                <p class='card-text mb-0'>
+                  <span class='fw-bold'> Good for: </span>
+                  <?php echo htmlspecialchars($package['good_for']) ?>
+                </p>
                 <p class='card-text'>
                   <span class='fw-bold'> Price: Php</span>
                   <?php echo htmlspecialchars($package['price']) ?>
