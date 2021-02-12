@@ -165,11 +165,19 @@ input.form-control:focus, textarea {
 }
 
 .flash-message {
-  animation: 3s fade;
+  animation: 5s fade;
   opacity: 0;
   width: max-content;
   margin: auto;
   font-weight: bolder;
   color: white;
   padding: 10px;
+}
+
+.btn--remove--activity {
+  border: none;
+}
+
+.btn--remove--activity:hover {
+  background: black;
 }

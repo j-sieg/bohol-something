@@ -31,6 +31,7 @@
     $inserted = mysqli_stmt_get_result($package_query);
     $last_id = mysqli_insert_id($db_conn);
     $url = '/package/index.php?package=' . $last_id;
+    $_SESSION['flash'] = 'Add activities to your package!';
     header("Location: $url");
   }
 ?>
