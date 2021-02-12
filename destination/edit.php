@@ -29,18 +29,6 @@
     <h1 class='text-center'> The destination does not exist :( </h1>
   <?php } ?>
 
-  <?php
-    if (isset($_POST['submit']) && !array_filter($errors)) {
-      $dest_id = (int) htmlspecialchars($_POST['dest_id']);
-      $redirect_to = "destination/index.php?dest=" . $dest_id;
-      $dest_query = mysqli_prepare($db_conn, 'UPDATE destinations set name=?, description=?, best_visit_time=?, url=?, price=?, available=? WHERE id=?');
-      mysqli_stmt_bind_param($dest_query, "ssssiii", $name, $description, $best_visit_time, $url, $price, $available, $dest_id);
-      mysqli_stmt_execute($dest_query);
-      $inserted = mysqli_stmt_get_result($dest_query);
-      header("Location: /destinations.php");
-    }
-  ?>
-
 </main>
 
 <?php

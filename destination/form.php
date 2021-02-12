@@ -17,6 +17,26 @@
     if (empty($price)) $errors['price'] = "can't be blank";
   }
 
+  if (isset($_POST['submit']) && !array_filter($errors)) {
+    include('../db/connection.php');
+    if ($method == 'Create') {
+      // creating a destination
+      $dest_id = (int) htmlspecialchars($_POST['dest_id']);
+      $dest_query = mysqli_prepare($db_conn, 'INSERT INTO destinations set name=?, description=?, best_visit_time=?, url=?, price=?, available=?');
+      mysqli_stmt_bind_param($dest_query, "ssssii", $name, $description, $best_visit_time, $url, $price, $available);
+      mysqli_stmt_execute($dest_query);
+      $inserted = mysqli_stmt_get_result($dest_query);
+    } else if ($method == 'Update') {
+      // updating a destination
+      $dest_id = (int) htmlspecialchars($_POST['dest_id']);
+      $dest_query = mysqli_prepare($db_conn, 'UPDATE destinations set name=?, description=?, best_visit_time=?, url=?, price=?, available=? WHERE id=?');
+      mysqli_stmt_bind_param($dest_query, "ssssiii", $name, $description, $best_visit_time, $url, $price, $available, $dest_id);
+      mysqli_stmt_execute($dest_query);
+      $inserted = mysqli_stmt_get_result($dest_query);
+    }
+    header("Location: /destinations.php");
+  }
+
 ?>
 
 <div class="card shadow bg-light rounded col-6 mx-auto mb-4">
