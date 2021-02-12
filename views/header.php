@@ -23,7 +23,10 @@
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/packages.php">Package</a>
+          <a class="nav-link" aria-current="page" href="/packages.php">Packages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/destinations.php">Destinations</a>
         </li>
         <?php if (!(isset($_SESSION['user_id']) || isset($_SESSION['admin_id']))) { ?>
           <li class="nav-item">
