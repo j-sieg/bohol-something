@@ -22,10 +22,7 @@
     <section class='row mx-auto'>
       <?php foreach($results as $dest) { ?>
         <article class='col-md-6 mx-auto'>
-          <div class='d-flex align-items-end'>
-            <h3> <?php echo htmlspecialchars($dest['name']) ?> </h3>
-            <?php include('./destination/actions.php'); ?>
-          </div>
+          <h3> <?php echo htmlspecialchars($dest['name']) ?> </h3>
           <?php if ($dest['url'])  { ?>
             <div class='d-flex justify-content-center mb-4'>
               <img class='img-fluid'
@@ -34,6 +31,7 @@
               />
             </div>
           <?php } ?>
+          <?php include('./destination/actions.php'); ?>
           <p><?php echo htmlspecialchars($dest['description']) ?></p>
           <p class='text-muted'>
             Best visit time:&nbsp;

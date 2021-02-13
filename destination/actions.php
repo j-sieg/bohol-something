@@ -1,5 +1,5 @@
 <?php if (isAdmin()) { ?>
-  <section class='actions p-2 d-flex'>
+  <section class='actions m-4 d-flex'>
     <a href="/destination/edit.php?dest=<?php echo htmlspecialchars($dest['id']) ?>"
     class='btn btn-sm btn-success mx-2'>edit</a>
     <form action='/destination/destroy.php' method='post'>
