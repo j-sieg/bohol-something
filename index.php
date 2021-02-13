@@ -4,14 +4,15 @@
 
 <main class='container mt-4'>
 
-  <section class="text-center"> 
+  <section class="text-center col-md-8 mx-auto mb-4"> 
     <h1 class='fw-bolder text-decoration-underline text-center'>COME TO BOHOL</h1>
     <p class='fst-italic fw-bolder text-decoration-underline'>EXPERIENCE THE GREATNESS OF BOHOL</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/u62-kCDwAmA"
-      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    </iframe>
-    <hr>
+    <div class="ratio ratio-21x9 col-6">
+      <iframe src="https://www.youtube.com/embed/xygC8uRMTY4" title="YouTube video" allowfullscreen></iframe>
+    </div>
   </section> <!-- center -->
+
+  <hr />
 
   <section class="row">
     <h1 class='mb-4 fw-bolder text-decoration-underline text-center'>WHATS NEW IN BOHOL?</h1>
