@@ -17,7 +17,7 @@
     if (empty($price)) $errors['price'] = "can't be blank";
   }
 
-  if (isset($_POST['submit']) && !array_filter($errors)) {
+  if (isset($_POST['submit']) && !array_filter($errors) && isAdmin()) {
     include('../db/connection.php');
     if ($method == 'Create') {
       // creating a destination
