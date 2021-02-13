@@ -26,6 +26,7 @@
       mysqli_stmt_bind_param($dest_query, "ssssii", $name, $description, $best_visit_time, $url, $price, $available);
       mysqli_stmt_execute($dest_query);
       $inserted = mysqli_stmt_get_result($dest_query);
+      $_SESSION['flash'] = 'Created a new destination';
     } else if ($method == 'Update') {
       // updating a destination
       $dest_id = (int) htmlspecialchars($_POST['dest_id']);
@@ -33,6 +34,7 @@
       mysqli_stmt_bind_param($dest_query, "ssssiii", $name, $description, $best_visit_time, $url, $price, $available, $dest_id);
       mysqli_stmt_execute($dest_query);
       $inserted = mysqli_stmt_get_result($dest_query);
+      $_SESSION['flash'] = 'Updated the destination';
     }
     header("Location: /destinations.php");
   }
