@@ -81,7 +81,7 @@
 
 <div class='row mx-auto justify-content-center mt-2'>
 
-  <form class='col-6 border border-dark border-3 p-2'
+  <form class='col-md-6 border border-dark border-3 p-2'
     action=''
     method='POST'>
 
