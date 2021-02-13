@@ -9,5 +9,4 @@
   $user_type = 'admin';
   $method = 'sign_up';
   include('../shared/login_form.php');
-  include('../footer.php');
 ?>

@@ -8,5 +8,4 @@
   $user_type = 'admin';
   $method = 'login';
   include('../shared/login_form.php');
-  include('../footer.php');
 ?>
