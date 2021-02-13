@@ -23,6 +23,9 @@
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/about_us.php">About us</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/packages.php">Packages</a>
         </li>
         <li class="nav-item">
