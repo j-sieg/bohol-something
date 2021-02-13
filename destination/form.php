@@ -61,8 +61,13 @@
 
     <div class='form-group mt-3'>
       <label for='description'> Description </label>
-      <input class='form-control' type='text' name='description'
-        value="<?php echo htmlspecialchars($dest['description']) ?>" placeholder="Description"/>
+      <textarea
+        class='form-control'
+        type='text'
+        name='description'
+        value="<?php echo htmlspecialchars($dest['description']) ?>"
+        placeholder="Description">
+      </textarea>
       <span class='text-danger'><?php echo $errors['description'] ?></span>
     </div>
 
