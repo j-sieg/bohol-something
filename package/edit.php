@@ -33,17 +33,3 @@
 <?php
   include('../views/footer.php');
 ?>
-
-<?php
-  if (isset($_POST['submit']) && !array_filter($errors)) {
-    $package_id = (int) htmlspecialchars($_POST['package_id']);
-    $redirect_to = "/package/index.php?package=" . $package_id;
-    $package_query = mysqli_prepare($db_conn, 'UPDATE packages SET name=?, good_for=?, price=?, perks=? WHERE id=?');
-    mysqli_stmt_bind_param($package_query, "siisi", $name, $good_for, $price, $perks, $package_id);
-    mysqli_stmt_execute($package_query);
-    $inserted = mysqli_stmt_get_result($package_query);
-    $url = '/package/index.php?package=' . $package_id;
-    $_SESSION['flash'] = 'Updated the package';
-    header("Location: $url");
-  }
-?>

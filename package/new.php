@@ -21,17 +21,3 @@
 <?php
   include('../views/footer.php');
 ?>
-
-<?php
-  if (isset($_POST['submit']) && !array_filter($errors)) {
-    include('../db/connection.php');
-    $package_query = mysqli_prepare($db_conn, 'INSERT INTO packages (name, good_for, price, perks) values (?, ?, ?, ?)');
-    mysqli_stmt_bind_param($package_query, "siis", $name, $good_for, $price, $perks);
-    mysqli_stmt_execute($package_query);
-    $inserted = mysqli_stmt_get_result($package_query);
-    $last_id = mysqli_insert_id($db_conn);
-    $url = '/package/index.php?package=' . $last_id;
-    $_SESSION['flash'] = 'Add activities to your package!';
-    header("Location: $url");
-  }
-?>

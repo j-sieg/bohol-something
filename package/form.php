@@ -1,5 +1,6 @@
 <?php
   $errors = array('name' => '', 'good_for' => '' , 'price' => '', 'perks' => '');
+
   if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -13,7 +14,30 @@
     if (empty($price)) {
       $errors['price'] = "can't be blank";
     }
+  }
 
+  if (isset($_POST['submit']) && !array_filter($errors) && isAdmin()) {
+    include('../db/connection.php');
+
+    // package create & delete
+    if ($method == 'Create') {
+      $package_query = mysqli_prepare($db_conn, 'INSERT INTO packages (name, good_for, price, perks) values (?, ?, ?, ?)');
+      mysqli_stmt_bind_param($package_query, "siis", $name, $good_for, $price, $perks);
+      mysqli_stmt_execute($package_query);
+      $inserted = mysqli_stmt_get_result($package_query);
+      $last_id = mysqli_insert_id($db_conn);
+      $url = '/package/index.php?package=' . $last_id;
+      $_SESSION['flash'] = 'Add activities to your package!';
+    } else if ($method == 'Update') {
+      $package_id = (int) htmlspecialchars($_POST['package_id']);
+      $package_query = mysqli_prepare($db_conn, 'UPDATE packages SET name=?, good_for=?, price=?, perks=? WHERE id=?');
+      mysqli_stmt_bind_param($package_query, "siisi", $name, $good_for, $price, $perks, $package_id);
+      mysqli_stmt_execute($package_query);
+      $inserted = mysqli_stmt_get_result($package_query);
+      $url = '/package/index.php?package=' . $package_id;
+      $_SESSION['flash'] = 'Updated the package';
+    }
+    header("Location: $url");
   }
 ?>
 
