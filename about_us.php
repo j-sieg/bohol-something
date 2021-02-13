@@ -6,7 +6,7 @@
 	<div class="row text-center">
 		<h1 class="fw-bolder text-decoration-underline mb-3">COME TO BOHOL</h1>
 		<div class='mx-auto mb-4' style='width: max-content;'>
-			<img width='700px' class='img-fluid border border-3 border-dark rounded' src='https://lh3.googleusercontent.com/rbW7zm8WuNorHaNmTR7WpJzJB4TpimWQFflltplO5q_PQ6eUk4MyFvIFKJjIRpzbKc7D5bOtb796cQYnZiko=w2940-h6366-rw'>
+			<img width='700px' class='img-fluid border border-3 border-dark rounded' src='https://www.toponmylist.com/wp-content/uploads/2015/01/IMG_1815-1280x720.jpg'>
 		</div>
 		<p class="fs-5">
 			Come To Bohol is the ultimate virtual tourist guide.
