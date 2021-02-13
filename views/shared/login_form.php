@@ -28,10 +28,10 @@
 
       if ($user_type !== 'admin') {
         // user login
-        $stmt = mysqli_prepare($db_conn, 'SELECT id, password_digest FROM users WHERE email = ? LIMIT 1;');
+        $stmt = mysqli_prepare($db_conn, 'SELECT id, email, password_digest FROM users WHERE email = ? LIMIT 1;');
       } else {
         // admin login
-        $stmt = mysqli_prepare($db_conn, 'SELECT id, password_digest FROM admins WHERE email = ? LIMIT 1;');
+        $stmt = mysqli_prepare($db_conn, 'SELECT id, email, password_digest FROM admins WHERE email = ? LIMIT 1;');
       }
 
       mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
@@ -46,6 +46,7 @@
           $password = $_POST['password'];
           if (password_verify($password, $hash)) {
             $_SESSION[$user_type . "_id"] = $current_user['id'];
+            $_SESSION['flash'] = 'Successfully logged in!';
             header('Location: /');
           } else {
             $errors['invalid'] = 'Invalid email/password';
@@ -64,7 +65,8 @@
         $succes = mysqli_stmt_execute($sql);
 
         if ($succes) {
-          header('Location: /views/user/login.php');
+          $_SESSION['flash'] = 'Try logging in with your account!';
+          header("Location: /views/$user_type/login.php");
         } else {
           $errors['invalid'] = 'Email has already been taken';
         }
