@@ -7,6 +7,6 @@
 
 <?php
   $user_type = 'admin';
-  $method = 'sign_up';
+  $method = 'Sign up';
   include('../shared/login_form.php');
 ?>

@@ -14,7 +14,7 @@
     // password validation
     if (empty($_POST['password'])) {
       $errors['password'] = 'you must have a password!';
-    } else if ($method !== 'login') {
+    } else if ($method !== 'Login') {
       // FIXME: feel free to replace this with a regex or something better
       if (strlen($_POST['password']) < 8) {
         $errors['password'] = 'password must not be less than 8 characters';
@@ -39,7 +39,7 @@
       $results = mysqli_stmt_get_result($stmt);
 
       // redirect on success
-      if ($method == 'login') {
+      if ($method == 'Login') {
         if (mysqli_num_rows($results) > 0) {
           $current_user = mysqli_fetch_assoc($results);
           $hash = $current_user['password_digest'];
@@ -102,7 +102,7 @@
     </div>
 
     <div class='form-group mt-2'>
-      <input class='btn btn-dark' type='submit' name='submit' value='Login' />
+      <input class='btn btn-dark' type='submit' name='submit' value='<?php echo htmlspecialchars($method) ?>' />
     </div>
 
   </form>

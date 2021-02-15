@@ -6,6 +6,6 @@
 
 <?php
   $user_type = 'user';
-  $method = 'login';
+  $method = 'Login';
   include('../shared/login_form.php');
 ?>
