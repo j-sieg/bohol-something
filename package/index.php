@@ -104,10 +104,53 @@
           <?php echo htmlspecialchars($package['price']) ?>
         </p>
 
+        <?php if (isLoggedIn()) { ?>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Avail
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Payment Information</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <ol>
+                    <li class='mb-4'>
+                      Please deposit or transfer your payment to the following bank account: <br />
+                      Bank: Dummy Bank <br />
+                      Account Name: Josh Bohol <br />
+                      Account Number: 999000999000 <br />
+                      Branch Name: Master
+                    </li>
+                    <li class='mb-4'>
+                      Take a photo of your deposit slip (over-the-counter-payment) or a&nbsp;
+                      screenshot of your transaction.
+                    </li>
+                    <li class='mb-4'>
+                      <p>
+                        Email the photo to <span class='font-weight-bolder'>example@cometobohol.com</span>&nbsp;
+                        with your full name and package that you availed (ex. John Doe - <?php echo htmlspecialchars($package['name']); ?>)
+                      </p>
+                      <p>
+                        Online inter-banking transfers may have additional bank charges and processing&nbsp;
+                        may take up to 3-5 business days.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php } ?> <!-- modal end -->
+
       </div>
       <?php include('./actions.php'); ?>
     </div>
-
 
   <?php } else { ?>
     <h1 class='text-center'> The package does not exist :( </h1>
