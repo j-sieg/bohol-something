@@ -63,6 +63,8 @@
 
 </main>
 
-<?php
-  include('./views/footer.php');
-?>
+<div style='position: absolute; bottom:0;width: 98.2%;'>
+  <?php
+    include('../views/footer.php');
+  ?>
+</div>
