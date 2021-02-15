@@ -2,7 +2,7 @@
   include('./views/header.php');
 ?>
 
-<main class='mt-4'>
+<main class='mt-4' style='height: 100%;'>
   <?php
     // query tall
     include('./db/connection.php');
@@ -63,8 +63,6 @@
 
 </main>
 
-<div style='position: absolute; bottom:0;width: 98.2%;'>
-  <?php
-    include('./views/footer.php');
-  ?>
-</div>
+<?php
+  include('./views/footer.php');
+?>
